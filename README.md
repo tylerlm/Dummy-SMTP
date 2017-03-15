@@ -34,7 +34,7 @@ Do this as root, or prefix each command with `sudo`:
 5. `chown -R fakesmtp:fakesmtp /var/lib/fakesmtp`
 6. Copy the systemd unit file: `cp /opt/fakesmtp/fakesmtp.service /etc/systemd/system/`
 7. Take a look at `/etc/systemd/system/fakesmtp.service` and make sure paths/addresses/ports/user are correct.
-8. `systemctl install fakesmtp.service`
+8. `systemctl enable fakesmtp.service`
       
 Run `service fakesmtp start` to bring up the fakesmtp daemon, it defaults to localhost:2525 saving mails to `/var/lib/fakesmtp/mail`. `service fakesmtp stop` stops it, `service fakesmtp status` will tell you its status.
 
