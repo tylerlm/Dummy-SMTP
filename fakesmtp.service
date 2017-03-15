@@ -1,0 +1,15 @@
+[Unit]
+Description=A simple SMTP server that saves mails to a directory instead of sending them
+
+[Service]
+ExecStart=/usr/bin/python /usr/local/bin/fakesmtp -a localhost -p 2525 /var/lib/fakesmtp/mail
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=fakesmtp
+AssertPathExists=/var/lib/fakesmtp/mail
+User=fakesmtp
+Group=fakesmtp
+
+[Install]
+WantedBy=multi-user.target
